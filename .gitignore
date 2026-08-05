@@ -1,0 +1,11 @@
+# dipendenze e build
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ambiente e sistema
+.env*.local
+.DS_Store
+Thumbs.db

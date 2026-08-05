@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disorder Public House — Irish Pub & Gastropub | L'Aquila</title>
+  <meta name="description" content="Disorder Public House, il gastropub irlandese di L'Aquila. Smash burger, birre artigianali, cocktail e serate live. Scopri il menu e i prossimi eventi.">
+  <meta name="keywords" content="Disorder Public House, Irish Pub, Gastropub, L'Aquila, Abruzzo, smash burger, birra artigianale, cocktail, eventi live">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Disorder Public House — Irish Pub & Gastropub">
+  <meta property="og:description" content="Il gastropub irlandese di L'Aquila. Smash burger, birre artigianali, cocktail e serate live.">
+  <meta property="og:image" content="RESOURCES/LOGO.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="RESOURCES/LOGO.jpg" type="image/jpeg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Grain Overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="RESOURCES/LOGO.jpg" alt="Disorder Public House Logo">
+    <div class="nav-logo-text">
+      Disorder
+      <span>Public House</span>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">Chi Siamo</a>
+    <a href="#menu">Menu</a>
+    <a href="#events">Eventi</a>
+    <a href="#contact">Contatti</a>
+    <a href="https://menu.pienissimo.com/menu" target="_blank" rel="noopener" class="nav-cta">Prenota</a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#about">Chi Siamo</a>
+  <a href="#menu">Menu</a>
+  <a href="#events">Eventi</a>
+  <a href="#contact">Contatti</a>
+  <a href="https://menu.pienissimo.com/menu" target="_blank" rel="noopener" style="color: var(--gold);">Prenota</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO — Scroll-Driven Burger Animation
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-sticky">
+    <!-- Loading Screen -->
+    <div class="hero-loader" id="heroLoader">
+      <div class="loader-bar">
+        <div class="loader-bar-fill" id="loaderFill"></div>
+      </div>
+      <div class="loader-text" id="loaderText">Loading experience...</div>
+    </div>
+
+    <!-- Canvas for Frame Animation -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- Logo Overlay (reveals on scroll) -->
+    <div class="hero-overlay">
+      <div class="hero-logo-container" id="heroLogo">
+        <img src="RESOURCES/LOGO.jpg" alt="Disorder Public House">
+        <div class="hero-title">Disorder Public House</div>
+        <div class="hero-subtitle">Irish Pub & Gastropub — L'Aquila</div>
+      </div>
+    </div>
+
+    <!-- Scroll Hint -->
+    <div class="hero-scroll-hint" id="scrollHint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ABOUT / CHI SIAMO
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Chi Siamo</div>
+      <h2 class="section-title">Non il solito <em>pub</em></h2>
+      <p class="section-description">
+        Un angolo d'Irlanda nel cuore di L'Aquila. Dove la buona cucina incontra la tradizione del pub, 
+        con un tocco di ribellione.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h3>Gastropub con <em style="color:var(--gold);font-style:italic">anima</em></h3>
+        <p>
+          <strong>Disorder Public House</strong> nasce dalla passione per il cibo fatto bene e la cultura del pub irlandese. 
+          I nostri <strong>smash burger</strong> sono preparati al momento, con patty di manzo smashati sulla piastra, 
+          cheddar filante e salse artigianali.
+        </p>
+        <p>
+          Ma non ci fermiamo qui: dal <strong>fish & chips</strong> classico alla nostra selezione di 
+          <strong>cocktail</strong> e <strong>whisky irlandesi</strong>, ogni sera è un'esperienza. 
+          Con musica live, quiz night e partite in diretta, Disorder è il posto dove ogni sera 
+          succede qualcosa.
+        </p>
+        <p>
+          Il nome? Un omaggio ai Joy Division e alla filosofia del caos creativo. 
+          Qui il disordine è di casa — nel senso migliore.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat reveal reveal-delay-1">
+            <div class="stat-number">70+</div>
+            <div class="stat-label">Items al Menu</div>
+          </div>
+          <div class="stat reveal reveal-delay-2">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Cocktail</div>
+          </div>
+          <div class="stat reveal reveal-delay-3">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Whisky & Spirits</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal reveal-delay-2">
+        <img src="RESOURCES/LOGO.jpg" alt="Disorder Public House Interior" style="object-fit: contain; background: #050505;">
+        <div class="about-visual-badge">
+          <div class="badge-label">Dal 2023</div>
+          <div class="badge-text">L'Aquila, Abruzzo 🇮🇪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MENU
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Il Menu</div>
+      <h2 class="section-title">Cosa si <em>mangia</em></h2>
+      <p class="section-description">
+        Dai nostri iconici smash burger al fish & chips, passando per cocktail artigianali e una selezione premium di whisky.
+      </p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="menu-tabs reveal" id="menuTabs" role="tablist">
+      <button class="menu-tab active" data-tab="menu-combo" role="tab">
+        <span class="tab-icon">🍔</span> Menù
+      </button>
+      <button class="menu-tab" data-tab="appetizer" role="tab">
+        <span class="tab-icon">🧆</span> Appetizer
+      </button>
+      <button class="menu-tab" data-tab="mains" role="tab">
+        <span class="tab-icon">🥩</span> Main Courses
+      </button>
+      <button class="menu-tab" data-tab="sides" role="tab">
+        <span class="tab-icon">🥗</span> Contorni
+      </button>
+      <button class="menu-tab" data-tab="dessert" role="tab">
+        <span class="tab-icon">🍰</span> Dessert
+      </button>
+      <button class="menu-tab" data-tab="cocktail" role="tab">
+        <span class="tab-icon">🍸</span> Cocktail
+      </button>
+      <button class="menu-tab" data-tab="softdrink" role="tab">
+        <span class="tab-icon">🥤</span> Soft Drink
+      </button>
+      <button class="menu-tab" data-tab="spirits" role="tab">
+        <span class="tab-icon">🥃</span> Liquor & Spirits
+      </button>
+    </div>
+
+    <!-- ─── MENÙ (Combo) ─── -->
+    <div class="menu-panel active" id="menu-combo" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Brighton&HA Menù</div>
+            <div class="menu-card-price">€23,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Brighton&HA, Chili Cheese Bites croccanti e le nostre Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🌿 Vegetariano</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Classic Smash Menù</div>
+            <div class="menu-card-price">€23,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Smash Burger classico, DFC e Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">⭐ Best Seller</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Filo's Smash Menù</div>
+            <div class="menu-card-price">€18,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Filo's Burger, Chili Cheese Bites croccanti e le nostre Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Highbury Menù</div>
+            <div class="menu-card-price">€23,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Highbury, Chili Cheese Bites croccanti e le nostre Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Main Road Menù</div>
+            <div class="menu-card-price">€23,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Main Road, Chili Cheese Bites croccanti e le nostre Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Smash Plus Menù</div>
+            <div class="menu-card-price">€25,00</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Smash Plus, DFC e Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🔥 Premium</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Smash Wood Menù</div>
+            <div class="menu-card-price">€23,50</div>
+          </div>
+          <div class="menu-card-desc">Il nostro Smash Wood, Chili Cheese Bites croccanti e le nostre Old School Fries, per chiudere in dolcezza con tortino al cioccolato o Cheesecake a scelta.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── APPETIZER ─── -->
+    <div class="menu-panel" id="appetizer" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Old School Fries</div>
+            <div class="menu-card-price">€5,00</div>
+          </div>
+          <div class="menu-card-desc">Patate di Montereale, tagliate a mano al momento e fritte con la buccia, croccanti fuori e morbide dentro, condite con il nostro mix di spezie.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🌿 Vegano</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Old School Fries Deluxe</div>
+            <div class="menu-card-price">€7,00</div>
+          </div>
+          <div class="menu-card-desc">Le nostre Old School Fries con aggiunta di pecorino e pancetta croccante.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">⭐ Best Seller</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Chili Cheese Bites</div>
+            <div class="menu-card-price">€5,00</div>
+          </div>
+          <div class="menu-card-desc">Pepite di formaggio fuso e jalapeño. Croccanti fuori, filanti dentro.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Salse</div>
+            <div class="menu-card-price">€0,50</div>
+          </div>
+          <div class="menu-card-desc">A scelta tra: Disorder, Ketchup, Maionese, Barbecue.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Olive Ascolane</div>
+            <div class="menu-card-price">€4,50</div>
+          </div>
+          <div class="menu-card-desc">Croccanti e sfiziose. 7 pezzi per porzione.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Chicken Wings</div>
+            <div class="menu-card-price">€7,00</div>
+          </div>
+          <div class="menu-card-desc">Alette di pollo speziate e succulente cotte alla griglia, accompagnate da salsa BBQ. 6 pezzi per porzione.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">DFC — Disorder Fried Chicken</div>
+            <div class="menu-card-price">€7,00</div>
+          </div>
+          <div class="menu-card-desc">Tenders di pollo speziati e fritti. La nostra versione del fried chicken.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🔥 Signature</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── MAIN COURSES ─── -->
+    <div class="menu-panel" id="mains" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Filo's Smash Burger</div>
+            <div class="menu-card-price">€7,00</div>
+          </div>
+          <div class="menu-card-desc">Un patty di manzo da 90g smashato alla piastra, cheddar filante, bacon croccante e la nostra salsa smash.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Smash Burger</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">Due patty di manzo da 90g smashate alla piastra, cheddar filante, la nostra salsa smash, cuore di lattuga e pomodoro fresco.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">⭐ Best Seller</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Smash Plus</div>
+            <div class="menu-card-price">€15,00</div>
+          </div>
+          <div class="menu-card-desc">Due patty di manzo da 90g smashate alla piastra, pecorino filante, pancetta croccante, uovo al tegamino, cuore di lattuga e pomodoro fresco.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🔥 Premium</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Maine Road</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">Il nostro cheeseburger: 220g di manzo, insalata, pomodoro e formaggio fuso.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">On The Plate</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">220g di manzo al piatto con un contorno a scelta tra: Old School Fries, cicoria ripassata o patate e cicoria.</div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Pre Match Stress</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">L'iconico fish and chips da English pub. Pesce in pastella croccante con le nostre fries.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇬🇧 Classic</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Smash Wood</div>
+            <div class="menu-card-price">€15,00</div>
+          </div>
+          <div class="menu-card-desc">Due patty di manzo croccanti con cicoria ripassata, crema di funghi, pecorino e cipolle caramellate.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🔥 Premium</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Brighton&HA</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">Burger vegetale a base di soia alla griglia, edamer fuso, pecorino grattugiato, cuore di lattuga e pomodoro fresco.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🌿 Vegetariano</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Highbury</div>
+            <div class="menu-card-price">€13,00</div>
+          </div>
+          <div class="menu-card-desc">Panino con croccante cotoletta di pollo, insalata, pomodori, Cheddar fuso e salsa algérienne.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── SIDE DISHES ─── -->
+    <div class="menu-panel" id="sides" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Cicoria Ripassata</div>
+            <div class="menu-card-price">€5,00</div>
+          </div>
+          <div class="menu-card-desc">Cicoria ripassata con aglio e peperoncino. Tradizione abruzzese nel piatto.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🌿 Vegano</span></div>
+        </div>
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Patate e Cicoria</div>
+            <div class="menu-card-price">€5,00</div>
+          </div>
+          <div class="menu-card-desc">Il classico contorno abruzzese: patate e cicoria ripassate insieme.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🌿 Vegano</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── DESSERT ─── -->
+    <div class="menu-panel" id="dessert" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header">
+            <div class="menu-card-name">Chocolate Fondant</div>
+            <div class="menu-card-price">€5,00</div>
+          </div>
+          <div class="menu-card-desc">Tortino al cioccolato con cuore caldo e fondente. Il finale perfetto.</div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🍫 Signature</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── COCKTAIL ─── -->
+    <div class="menu-panel" id="cocktail" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Americano</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Aperol Spritz</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Boulevardier</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Negroni</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Negroni Sbagliato</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Campari e Fanta</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Campari Spritz</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Cuba Libre</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Daiquiri</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Margarita</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Vodka Lemon</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Gin Lemon</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Long Island Iced Tea</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Gin Fizz</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Gin Tonic</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Manhattan</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Mi-To</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Moscow Mule</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Vodka Sour</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Vodka Tonic</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Whisky Sour</div><div class="menu-card-price">€7,00</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── SOFT DRINK ─── -->
+    <div class="menu-panel" id="softdrink" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Acqua Brillante</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Acqua Naturale</div><div class="menu-card-price">€1,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Acqua Frizzante</div><div class="menu-card-price">€1,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Caffè</div><div class="menu-card-price">€1,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Coca Cola</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Coca Cola Zero</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Estathé</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Fanta</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Sprite</div><div class="menu-card-price">€3,00</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── LIQUOR & SPIRITS ─── -->
+    <div class="menu-panel" id="spirits" role="tabpanel">
+      <div class="menu-grid">
+
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Jameson</div><div class="menu-card-price">€5,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇪 Irish</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">West Cork</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇪 Irish</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">West Cork Blended</div><div class="menu-card-price">€7,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇪 Irish</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Talisker Skye</div><div class="menu-card-price">€8,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotch</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Laphroaig 10 YA</div><div class="menu-card-price">€7,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotch</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Aberfeldy</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotch</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Bowmore</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotch</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Ballantines</div><div class="menu-card-price">€5,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">J&B</div><div class="menu-card-price">€5,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">William Lawson's</div><div class="menu-card-price">€5,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Glen Grant</div><div class="menu-card-price">€5,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Red Label</div><div class="menu-card-price">€5,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Black Label</div><div class="menu-card-price">€6,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Bulleit Bourbon</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇺🇸 Bourbon</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Bulleit 95 Rye</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇺🇸 Bourbon</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Zacapa Solera</div><div class="menu-card-price">€8,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏝️ Rum</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Diplomatico</div><div class="menu-card-price">€8,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏝️ Rum</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Kraken Rum</div><div class="menu-card-price">€6,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏝️ Rum</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Matusalem</div><div class="menu-card-price">€7,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏝️ Rum</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Amaro del Capo</div><div class="menu-card-price">€4,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇹 Amaro</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Brancamenta</div><div class="menu-card-price">€4,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇹 Amaro</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Fernet Branca</div><div class="menu-card-price">€4,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇹 Amaro</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Montenegro</div><div class="menu-card-price">€4,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🇮🇹 Amaro</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Jägermeister</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Sambuca Molinari</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Limoncello</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Ratafia</div><div class="menu-card-price">€4,00</div></div>
+          <div class="menu-card-tags"><span class="menu-card-tag">🏔️ Abruzzo</span></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Grappa 903 Barrique</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-header"><div class="menu-card-name">Grappa 903 Bianca</div><div class="menu-card-price">€4,00</div></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EVENTS
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section events-section" id="events">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Eventi</div>
+      <h2 class="section-title">Ogni sera è <em>live</em></h2>
+      <p class="section-description">
+        Musica dal vivo, quiz night, partite in diretta e serate a tema. 
+        Seguici su Facebook per non perdere nulla.
+      </p>
+    </div>
+
+    <div class="events-grid">
+
+      <div class="event-card reveal">
+        <div class="event-card-image">
+          <span class="event-icon">🎸</span>
+          <div class="event-date-badge">
+            <span class="day">VEN</span>
+            <span class="month">Ogni Settimana</span>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <span class="event-card-tag">Musica Live</span>
+          <h3 class="event-card-title">Live Music Night</h3>
+          <p class="event-card-desc">Ogni venerdì sera artisti locali e band dal vivo. Rock, indie, blues e molto altro nel nostro palco.</p>
+          <div class="event-card-time">Dalle 21:30</div>
+        </div>
+      </div>
+
+      <div class="event-card reveal reveal-delay-1">
+        <div class="event-card-image">
+          <span class="event-icon">🧠</span>
+          <div class="event-date-badge">
+            <span class="day">MER</span>
+            <span class="month">Ogni Settimana</span>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <span class="event-card-tag">Quiz Night</span>
+          <h3 class="event-card-title">Pub Quiz</h3>
+          <p class="event-card-desc">Metti alla prova le tue conoscenze! Squadre da 2 a 6 persone, premi per i vincitori e birra sconto per tutti.</p>
+          <div class="event-card-time">Dalle 21:00</div>
+        </div>
+      </div>
+
+      <div class="event-card reveal reveal-delay-2">
+        <div class="event-card-image">
+          <span class="event-icon">⚽</span>
+          <div class="event-date-badge">
+            <span class="day">SAB</span>
+            <span class="month">& Domenica</span>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <span class="event-card-tag">Sport</span>
+          <h3 class="event-card-title">Match Day</h3>
+          <p class="event-card-desc">Tutte le partite in diretta sui nostri schermi. Premier League, Serie A, Champions League e molto altro.</p>
+          <div class="event-card-time">Orario partite</div>
+        </div>
+      </div>
+
+      <div class="event-card reveal reveal-delay-3">
+        <div class="event-card-image">
+          <span class="event-icon">🎤</span>
+          <div class="event-date-badge">
+            <span class="day">1×</span>
+            <span class="month">Al Mese</span>
+          </div>
+        </div>
+        <div class="event-card-body">
+          <span class="event-card-tag">Open Mic</span>
+          <h3 class="event-card-title">Open Mic Night</h3>
+          <p class="event-card-desc">Il palco è tuo! Porta il tuo strumento e la tua voce. Stand-up comedy, poesia, musica — tutto è benvenuto.</p>
+          <div class="event-card-time">Dalle 21:00</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="events-cta reveal">
+      <a href="https://www.facebook.com/people/Disorder-Public-House/100093424218755/" target="_blank" rel="noopener" class="btn-primary">
+        Seguici su Facebook →
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Contatti</div>
+      <h2 class="section-title">Vieni a <em>trovarci</em></h2>
+      <p class="section-description">
+        Siamo nel cuore di L'Aquila. Passa a trovarci o prenota un tavolo.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Indirizzo</div>
+            <div class="contact-value">
+              <a href="https://maps.google.com/?q=Disorder+Public+House+L'Aquila" target="_blank" rel="noopener">
+                L'Aquila, Abruzzo, Italia
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🍽️</div>
+          <div>
+            <div class="contact-label">Prenotazioni</div>
+            <div class="contact-value">
+              <a href="https://menu.pienissimo.com/menu" target="_blank" rel="noopener">
+                Prenota su Pienissimo →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-label">Social</div>
+            <div class="contact-value">
+              <a href="https://www.facebook.com/people/Disorder-Public-House/100093424218755/" target="_blank" rel="noopener">Facebook</a> ·
+              <a href="https://www.instagram.com/disorderpublichouse/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Orari</div>
+            <div class="hours-table" id="hoursTable">
+              <div class="hours-row" data-day="1"><span class="hours-day">Lunedì</span><span class="hours-time">Chiuso</span></div>
+              <div class="hours-row" data-day="2"><span class="hours-day">Martedì</span><span class="hours-time">18:00 – 01:00</span></div>
+              <div class="hours-row" data-day="3"><span class="hours-day">Mercoledì</span><span class="hours-time">18:00 – 01:00</span></div>
+              <div class="hours-row" data-day="4"><span class="hours-day">Giovedì</span><span class="hours-time">18:00 – 01:00</span></div>
+              <div class="hours-row" data-day="5"><span class="hours-day">Venerdì</span><span class="hours-time">18:00 – 02:00</span></div>
+              <div class="hours-row" data-day="6"><span class="hours-day">Sabato</span><span class="hours-time">18:00 – 02:00</span></div>
+              <div class="hours-row" data-day="0"><span class="hours-day">Domenica</span><span class="hours-time">18:00 – 00:00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-strip">
+          <a href="https://www.facebook.com/people/Disorder-Public-House/100093424218755/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/disorderpublichouse/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="contact-map reveal reveal-delay-2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23508.88!2d13.39!3d42.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sL'Aquila!5e0!3m2!1sit!2sit!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mappa Disorder Public House">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="RESOURCES/LOGO.jpg" alt="Disorder">
+        <span class="footer-logo-text">Disorder Public House</span>
+      </div>
+      <div class="footer-copy">
+        © 2025 Disorder Public House — L'Aquila, Italy
+      </div>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/people/Disorder-Public-House/100093424218755/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/disorderpublichouse/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://menu.pienissimo.com/menu" target="_blank" rel="noopener">Prenota</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>

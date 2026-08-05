@@ -1,0 +1,375 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════════════════════
+   DISORDER PUBLIC HOUSE — sistema visivo
+   Verde bottiglia, legno, pergamena, oro discreto, bordeaux.
+   Nessun neon, nessun gradiente freddo, nessun vetro.
+
+   Nota di cascata: gli stili di base stanno in @layer base e i
+   componenti in @layer components, così le utility di Tailwind
+   (che stanno nel layer utilities) possono sempre sovrascriverli.
+   ══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* — colori — */
+  --color-notte: #0a130e;
+  --color-bottiglia: #0f2418;
+  --color-verdone: #16341f;
+  --color-muschio: #2c4733;
+  --color-legno: #6b4423;
+  --color-legno-scuro: #38230f;
+  --color-legno-chiaro: #9a6537;
+  --color-crema: #f4ebda;
+  --color-pergamena: #e7dac0;
+  --color-pergamena-scura: #cdb894;
+  --color-oro: #c6a15b;
+  --color-oro-scuro: #99762f;
+  --color-bordeaux: #6d2330;
+  --color-fumo: #a99d85;
+
+  /* — tipografia — */
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-karla), "Helvetica Neue", Arial, sans-serif;
+  --font-inciso: var(--font-cinzel), "Trajan Pro", Georgia, serif;
+
+  /* — ritmo — */
+  --ease-lento: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-sipario: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  --bordo-tenue: color-mix(in srgb, var(--color-oro) 22%, transparent);
+  --ombra-calda: 0 24px 60px -30px rgb(0 0 0 / 0.85);
+  --grana: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* ── base ───────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-notte);
+    color: var(--color-crema);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.intro-attiva {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background: var(--color-oro);
+    color: var(--color-notte);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-oro);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 100;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h3,
+  h4 {
+    font-variation-settings: "SOFT" 30, "WONK" 0, "opsz" 30;
+    line-height: 1.18;
+    letter-spacing: -0.005em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  address {
+    font-style: normal;
+  }
+}
+
+/* ── componenti ─────────────────────────────────────────────── */
+
+@layer components {
+  .inciso {
+    font-family: var(--font-inciso);
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 0.6875rem;
+    font-weight: 600;
+  }
+
+  .corsivo {
+    font-style: italic;
+    font-variation-settings: "SOFT" 80, "WONK" 1, "opsz" 144;
+    color: var(--color-oro);
+  }
+
+  .contenitore {
+    width: min(100% - 2.5rem, 78rem);
+    margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .contenitore {
+      width: min(100% - 5rem, 78rem);
+    }
+  }
+
+  .sezione {
+    position: relative;
+    padding-block: clamp(4.5rem, 9vw, 8.5rem);
+  }
+
+  /* velo di grana su tutta la pagina: dà materia, non è un effetto */
+  .grana::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: var(--grana);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 60;
+    mix-blend-mode: overlay;
+  }
+
+  .legno {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(10 19 14 / 0.9),
+        rgb(10 19 14 / 0.72) 45%,
+        rgb(10 19 14 / 0.94)
+      ),
+      url("/texture/legno.webp");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .pergamena {
+    background: linear-gradient(160deg, #f6efe0 0%, var(--color-pergamena) 58%, #dccdb0 100%);
+    color: var(--color-legno-scuro);
+  }
+
+  /* filetto ornamentale fra le sezioni */
+  .filetto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: color-mix(in srgb, var(--color-oro) 55%, transparent);
+  }
+
+  .filetto::before,
+  .filetto::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    max-width: 8rem;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+  }
+
+  .filetto svg {
+    flex: none;
+  }
+
+  .btn {
+    --btn-bg: var(--color-oro);
+    --btn-fg: #17100a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.9rem;
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    font-family: var(--font-inciso);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    transition:
+      transform 0.45s var(--ease-lento),
+      background-color 0.45s var(--ease-lento),
+      color 0.45s var(--ease-lento),
+      box-shadow 0.45s var(--ease-lento);
+    box-shadow: 0 10px 26px -16px rgb(0 0 0 / 0.9);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -16px rgb(0 0 0 / 0.9);
+    background: color-mix(in srgb, var(--color-oro) 88%, #fff);
+  }
+
+  .btn-fantasma {
+    --btn-bg: transparent;
+    --btn-fg: var(--color-crema);
+    border-color: color-mix(in srgb, var(--color-crema) 38%, transparent);
+    box-shadow: none;
+  }
+
+  .btn-fantasma:hover {
+    background: color-mix(in srgb, var(--color-crema) 10%, transparent);
+    border-color: var(--color-oro);
+    color: var(--color-oro);
+  }
+
+  .rivela {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 1.05s var(--ease-lento),
+      transform 1.05s var(--ease-lento);
+    transition-delay: var(--ritardo, 0ms);
+  }
+
+  .rivela.visibile {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* menu: impaginazione da carta */
+  .voce {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .voce-punti {
+    flex: 1 1 auto;
+    min-width: 1.5rem;
+    border-bottom: 1px dotted color-mix(in srgb, currentColor 62%, transparent);
+    transform: translateY(-0.3em);
+    opacity: 0.8;
+  }
+
+  .trascina {
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .trascina:active {
+    cursor: grabbing;
+  }
+
+  /* mappa: la calo nella palette del sito */
+  .mappa iframe {
+    filter: sepia(0.45) saturate(0.75) contrast(1.05) brightness(0.82) hue-rotate(-12deg);
+    transition: filter 0.8s var(--ease-lento);
+  }
+
+  .mappa:hover iframe {
+    filter: sepia(0.2) saturate(0.95) contrast(1) brightness(0.95) hue-rotate(-6deg);
+  }
+}
+
+/* ── animazioni ─────────────────────────────────────────────── */
+
+@keyframes salita {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes respiro {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.13);
+  }
+}
+
+@keyframes affiora {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes riga-oro {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ── scrollbar ──────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-notte);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-legno) 70%, black);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-oro-scuro);
+}
+
+/* ── rispetto delle preferenze di movimento ─────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+  .rivela {
+    opacity: 1;
+    transform: none;
+  }
+}
