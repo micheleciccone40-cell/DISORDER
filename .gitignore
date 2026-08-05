@@ -5,6 +5,9 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 
+# asset sorgente non usati direttamente nel build
+ANIMAZIONE DISORDER LANDING/
+
 # ambiente e sistema
 .env*.local
 .DS_Store

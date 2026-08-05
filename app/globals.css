@@ -2,30 +2,26 @@
 
 /* ══════════════════════════════════════════════════════════════
    DISORDER PUBLIC HOUSE — sistema visivo
-   Verde bottiglia, legno, pergamena, oro discreto, bordeaux.
-   Nessun neon, nessun gradiente freddo, nessun vetro.
+   Tutto su nero: sotto ai contenuti scorre l'onda di Unknown
+   Pleasures, disegnata su canvas e guidata dallo scroll.
+   Le superfici sono veli neri semitrasparenti, così l'onda si
+   intravede senza mai rubare leggibilità al testo.
 
-   Nota di cascata: gli stili di base stanno in @layer base e i
-   componenti in @layer components, così le utility di Tailwind
-   (che stanno nel layer utilities) possono sempre sovrascriverli.
+   Nota di cascata: base in @layer base, superfici in
+   @layer components, così le utility di Tailwind vincono sempre.
    ══════════════════════════════════════════════════════════════ */
 
 @theme {
   /* — colori — */
-  --color-notte: #0a130e;
-  --color-bottiglia: #0f2418;
-  --color-verdone: #16341f;
-  --color-muschio: #2c4733;
-  --color-legno: #6b4423;
-  --color-legno-scuro: #38230f;
-  --color-legno-chiaro: #9a6537;
+  --color-notte: #000000;
+  --color-carbone: #0b0b0b;
+  --color-fuliggine: #141414;
   --color-crema: #f4ebda;
-  --color-pergamena: #e7dac0;
-  --color-pergamena-scura: #cdb894;
   --color-oro: #c6a15b;
-  --color-oro-scuro: #99762f;
+  --color-oro-scuro: #9c7c3c;
   --color-bordeaux: #6d2330;
   --color-fumo: #a99d85;
+  --color-cenere: #6f6a5e;
 
   /* — tipografia — */
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
@@ -38,8 +34,8 @@
 }
 
 :root {
-  --bordo-tenue: color-mix(in srgb, var(--color-oro) 22%, transparent);
-  --ombra-calda: 0 24px 60px -30px rgb(0 0 0 / 0.85);
+  --bordo-tenue: color-mix(in srgb, var(--color-oro) 20%, transparent);
+  --ombra-calda: 0 24px 60px -30px rgb(0 0 0 / 0.9);
   --grana: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
@@ -48,12 +44,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 7.5rem;
     -webkit-text-size-adjust: 100%;
+    background: #000;
   }
 
   body {
-    background: var(--color-notte);
+    background: transparent;
     color: var(--color-crema);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -69,7 +66,7 @@
 
   ::selection {
     background: var(--color-oro);
-    color: var(--color-notte);
+    color: #000;
   }
 
   :focus-visible {
@@ -144,36 +141,81 @@
     padding-block: clamp(4.5rem, 9vw, 8.5rem);
   }
 
-  /* velo di grana su tutta la pagina: dà materia, non è un effetto */
   .grana::after {
     content: "";
     position: fixed;
     inset: 0;
     background-image: var(--grana);
-    opacity: 0.05;
+    opacity: 0.04;
     pointer-events: none;
     z-index: 60;
     mix-blend-mode: overlay;
   }
 
-  .legno {
-    background-image: linear-gradient(
-        to bottom,
-        rgb(10 19 14 / 0.9),
-        rgb(10 19 14 / 0.72) 45%,
-        rgb(10 19 14 / 0.94)
-      ),
-      url("/texture/legno.webp");
-    background-size: cover;
-    background-position: center;
+  /* Velo: nero semitrasparente sopra l'onda. È la superficie base di
+     ogni sezione di contenuto.
+
+     La sequenza scorre invertita: in cima c'è l'onda al completo, e si
+     smonta scendendo. Quindi le sezioni alte — chi siamo, eventi — hanno
+     dietro i fotogrammi più carichi (fino al 16-19% di area accesa, picchi
+     a 248), mentre menu e contatti pescano nella coda scura.
+
+     0.58 è il valore misurato che tiene il crema sopra 4,5:1 nel punto
+     peggiore di chi siamo. Sotto 0.57 quella sezione non passa più.
+     L'alone qui sotto copre il resto, cioè le creste sottili sui bordi
+     delle lettere. */
+  .velo {
+    background: rgb(0 0 0 / 0.58);
   }
 
-  .pergamena {
-    background: linear-gradient(160deg, #f6efe0 0%, var(--color-pergamena) 58%, #dccdb0 100%);
-    color: var(--color-legno-scuro);
+  .velo-fitto {
+    background: rgb(0 0 0 / 0.66);
   }
 
-  /* filetto ornamentale fra le sezioni */
+  /* l'alone si eredita: vale per ogni testo dentro una sezione velata,
+     e per la landing, che di velo non ne ha */
+  .velo,
+  .velo-fitto,
+  .alone {
+    text-shadow: 0 1px 14px rgb(0 0 0 / 0.85);
+  }
+
+  /* Il pannello del menu: una lastra scura appoggiata sull'onda.
+     Più densa del velo perché qui si legge davvero — 85 voci — ma non
+     più un muro: l'onda continua a passarci sotto. */
+  .lastra {
+    background: linear-gradient(
+      165deg,
+      rgb(12 12 12 / 0.66) 0%,
+      rgb(4 4 4 / 0.74) 55%,
+      rgb(10 10 10 / 0.66) 100%
+    );
+    border: 1px solid var(--bordo-tenue);
+  }
+
+  /* i bordi delle sezioni sfumano, così il velo non taglia di netto */
+  .sfuma-alto::before,
+  .sfuma-basso::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 6rem;
+    pointer-events: none;
+  }
+
+  .sfuma-alto::before {
+    top: 0;
+    transform: translateY(-100%);
+    background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.58));
+  }
+
+  .sfuma-basso::after {
+    bottom: 0;
+    transform: translateY(100%);
+    background: linear-gradient(to top, transparent, rgb(0 0 0 / 0.58));
+  }
+
   .filetto {
     display: flex;
     align-items: center;
@@ -197,7 +239,7 @@
 
   .btn {
     --btn-bg: var(--color-oro);
-    --btn-fg: #17100a;
+    --btn-fg: #14100a;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -230,12 +272,12 @@
   .btn-fantasma {
     --btn-bg: transparent;
     --btn-fg: var(--color-crema);
-    border-color: color-mix(in srgb, var(--color-crema) 38%, transparent);
+    border-color: color-mix(in srgb, var(--color-crema) 34%, transparent);
     box-shadow: none;
   }
 
   .btn-fantasma:hover {
-    background: color-mix(in srgb, var(--color-crema) 10%, transparent);
+    background: color-mix(in srgb, var(--color-crema) 8%, transparent);
     border-color: var(--color-oro);
     color: var(--color-oro);
   }
@@ -254,7 +296,6 @@
     transform: none;
   }
 
-  /* menu: impaginazione da carta */
   .voce {
     display: flex;
     align-items: baseline;
@@ -265,9 +306,9 @@
   .voce-punti {
     flex: 1 1 auto;
     min-width: 1.5rem;
-    border-bottom: 1px dotted color-mix(in srgb, currentColor 62%, transparent);
+    border-bottom: 1px dotted color-mix(in srgb, currentColor 55%, transparent);
     transform: translateY(-0.3em);
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .trascina {
@@ -281,14 +322,16 @@
     cursor: grabbing;
   }
 
-  /* mappa: la calo nella palette del sito */
+  /* la mappa, calata nel nero del sito */
   .mappa iframe {
-    filter: sepia(0.45) saturate(0.75) contrast(1.05) brightness(0.82) hue-rotate(-12deg);
+    filter: grayscale(0.5) sepia(0.3) saturate(0.75) contrast(1.1) brightness(0.65)
+      hue-rotate(-10deg);
     transition: filter 0.8s var(--ease-lento);
   }
 
   .mappa:hover iframe {
-    filter: sepia(0.2) saturate(0.95) contrast(1) brightness(0.95) hue-rotate(-6deg);
+    filter: grayscale(0.15) sepia(0.12) saturate(0.95) contrast(1) brightness(0.88)
+      hue-rotate(-6deg);
   }
 }
 
@@ -305,19 +348,10 @@
   }
 }
 
-@keyframes respiro {
-  from {
-    transform: scale(1.06);
-  }
-  to {
-    transform: scale(1.13);
-  }
-}
-
 @keyframes affiora {
   from {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.96);
     filter: blur(6px);
   }
   to {
@@ -336,6 +370,20 @@
   }
 }
 
+@keyframes scendi {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
 /* ── scrollbar ──────────────────────────────────────────────── */
 
 ::-webkit-scrollbar {
@@ -343,10 +391,10 @@
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-notte);
+  background: #000;
 }
 ::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-legno) 70%, black);
+  background: #2a2a2a;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {

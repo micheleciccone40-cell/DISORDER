@@ -25,12 +25,12 @@ export default function LunchBanner() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(9,20,13,0.15), rgba(9,20,13,0.9)), linear-gradient(to right, transparent 60%, rgba(9,20,13,0.85))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.9)), linear-gradient(to right, transparent 60%, rgba(0,0,0,0.85))",
           }}
         />
       </div>
 
-      <div className="bg-bottiglia px-6 py-9 sm:px-10 sm:py-12">
+      <div className="velo-fitto px-6 py-9 sm:px-10 sm:py-12">
         <span className="inciso text-oro/90">A pranzo</span>
         <h3 className="mt-4 text-[clamp(1.7rem,3.4vw,2.4rem)] text-crema">{lunch.titolo}</h3>
         <p className="mt-3 font-[family-name:var(--font-display)] text-[1.05rem] italic text-oro/85">

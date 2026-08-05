@@ -5,14 +5,7 @@ import { site } from "@/data/site";
 export default function NotFound() {
   return (
     <main className="relative flex min-h-[100svh] flex-col items-center justify-center gap-7 overflow-hidden px-6 text-center">
-      <div className="legno absolute inset-0" />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 45%, rgba(22,52,31,0.5), rgba(10,19,14,0.95) 60%, #070f0b)",
-        }}
-      />
+      <div className="absolute inset-0 bg-black" />
 
       <div className="relative flex flex-col items-center gap-6">
         <Image

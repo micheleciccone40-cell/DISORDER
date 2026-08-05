@@ -14,23 +14,17 @@ export default function MenuCategory({ categoria }: { categoria: Categoria }) {
   return (
     <section aria-labelledby={`cat-${categoria.id}`} className="scroll-mt-32">
       <header className="mb-9 text-center">
-        <h3
-          id={`cat-${categoria.id}`}
-          className="text-[clamp(1.8rem,4vw,2.7rem)] text-[#24160a]"
-        >
+        <h3 id={`cat-${categoria.id}`} className="text-[clamp(1.8rem,4vw,2.7rem)] text-crema">
           {categoria.nome}
         </h3>
         {categoria.intro && (
-          <p
-            className="mx-auto mt-3 max-w-[46ch] font-[family-name:var(--font-display)] text-[1.02rem] italic"
-            style={{ color: "#7a5a34" }}
-          >
+          <p className="mx-auto mt-3 max-w-[46ch] font-[family-name:var(--font-display)] text-[1.02rem] italic text-fumo">
             {categoria.intro}
           </p>
         )}
         <span
           className="mx-auto mt-6 block h-px w-20"
-          style={{ background: "color-mix(in srgb, var(--color-oro-scuro) 60%, transparent)" }}
+          style={{ background: "color-mix(in srgb, var(--color-oro) 60%, transparent)" }}
         />
       </header>
 
@@ -45,10 +39,7 @@ export default function MenuCategory({ categoria }: { categoria: Categoria }) {
           {gruppi.map((g) => (
             <div key={g.nome ?? "unico"} className="mb-10 last:mb-0">
               {g.nome && (
-                <h4
-                  className="mb-4 font-[family-name:var(--font-inciso)] text-[0.62rem] uppercase tracking-[0.3em]"
-                  style={{ color: "var(--color-oro-scuro)" }}
-                >
+                <h4 className="mb-4 font-[family-name:var(--font-inciso)] text-[0.62rem] uppercase tracking-[0.3em] text-oro/85">
                   {g.nome}
                 </h4>
               )}
