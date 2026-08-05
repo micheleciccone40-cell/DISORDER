@@ -1,0 +1,27 @@
+{
+  "name": "disorder-public-house",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito ufficiale di Disorder Public House — Irish pub & gastropub, L'Aquila",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "motion": "^13.0.0",
+    "next": "15.5.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^22.13.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.3"
+  }
+}
