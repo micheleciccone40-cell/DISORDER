@@ -13,7 +13,7 @@ function Prezzo({ valore, classe = "" }: { valore: string; classe?: string }) {
 function Etichetta({ testo }: { testo: string }) {
   return (
     <span
-      className="inline-block px-2 py-[3px] font-[family-name:var(--font-inciso)] text-[0.5rem] uppercase tracking-[0.2em] text-oro"
+      className="inline-block px-2 py-[3px] font-[family-name:var(--font-inciso)] text-[0.5rem] uppercase tracking-[0.2em] text-verde"
       style={{ border: "1px solid var(--bordo-tenue)" }}
     >
       {testo}
@@ -55,7 +55,7 @@ export function CardPiatto({ piatto, indice }: { piatto: Piatto; indice: number 
             puntini si spezzerebbero. Restano nelle righe della carta. */}
         <div className="flex items-baseline justify-between gap-4">
           <h4 className="text-[1.2rem] leading-snug text-crema">{piatto.nome}</h4>
-          <Prezzo valore={piatto.prezzo} classe="text-[1.2rem] text-oro" />
+          <Prezzo valore={piatto.prezzo} classe="text-[1.2rem] text-verde" />
         </div>
 
         {piatto.descrizione && (
@@ -84,11 +84,11 @@ export function RigaPiatto({ piatto, indice }: { piatto: Piatto; indice: number 
       }}
     >
       <div className="voce">
-        <h4 className="text-[1.06rem] leading-snug text-crema transition-colors duration-500 group-hover:text-oro">
+        <h4 className="text-[1.06rem] leading-snug text-crema transition-colors duration-500 group-hover:text-verde">
           {piatto.nome}
         </h4>
         <span className="voce-punti text-cenere" aria-hidden="true" />
-        <Prezzo valore={piatto.prezzo} classe="text-[1.06rem] text-oro" />
+        <Prezzo valore={piatto.prezzo} classe="text-[1.06rem] text-verde" />
       </div>
 
       {piatto.descrizione && (

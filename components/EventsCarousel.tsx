@@ -67,19 +67,10 @@ export default function EventsCarousel() {
   if (totale === 0) return null;
 
   return (
-    <section id="eventi" className="sezione relative overflow-hidden bg-notte">
-      {/* alone caldo dietro al carosello */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 55% at 50% 0%, rgba(35,64,40,0.55) 0%, transparent 70%)",
-        }}
-      />
-
+    <section id="eventi" className="sezione velo relative overflow-hidden">
       <div className="contenitore relative">
-        <Rivela className="mb-12 text-center md:mb-16">
-          <span className="inciso text-oro/90">Dal palco</span>
+        <Rivela className="pozza mb-12 text-center md:mb-16">
+          <span className="inciso text-verde/90">Dal palco</span>
           <h2 className="mx-auto mt-5 max-w-[18ch] text-[clamp(2.1rem,5vw,3.6rem)]">
             Le ultime <em className="corsivo">serate</em>
           </h2>
@@ -139,7 +130,7 @@ export default function EventsCarousel() {
                         className="relative flex items-center justify-center p-5 sm:p-8 md:block md:min-h-[34rem] md:p-0"
                         style={{
                           background:
-                            "radial-gradient(ellipse at 50% 40%, #2a1a0d 0%, #150d06 60%, #0c0703 100%)",
+                            "radial-gradient(ellipse at 50% 40%, #171717 0%, #0b0b0b 62%, #050505 100%)",
                         }}
                       >
                         <div className="relative aspect-[4/5] w-full max-w-[19rem] overflow-hidden shadow-[0_24px_50px_-24px_rgba(0,0,0,0.95)] md:absolute md:inset-0 md:aspect-auto md:max-w-none md:shadow-none">
@@ -160,11 +151,11 @@ export default function EventsCarousel() {
                       </div>
 
                       {/* testo */}
-                      <div className="legno relative flex flex-col justify-center gap-5 px-6 py-10 sm:px-10 md:px-12 md:py-14">
+                      <div className="pannello alone relative flex flex-col justify-center gap-5 px-6 py-10 sm:px-10 md:px-12 md:py-14">
                         {/* la data sta qui e non sul manifesto: sulle locandine
                             il titolo è in alto e verrebbe coperto */}
                         <div className="flex items-end gap-4">
-                          <span className="font-[family-name:var(--font-display)] text-[3.2rem] leading-[0.85] text-oro">
+                          <span className="font-[family-name:var(--font-display)] text-[3.2rem] leading-[0.85] text-verde">
                             {d.giorno}
                           </span>
                           <span className="flex flex-col pb-1">
@@ -178,18 +169,18 @@ export default function EventsCarousel() {
                         </div>
 
                         <div>
-                          <span className="inciso text-oro/90">{ev.occhiello}</span>
+                          <span className="inciso text-verde/90">{ev.occhiello}</span>
                           <h3 className="mt-4 text-[clamp(1.7rem,3.4vw,2.75rem)] text-crema">
                             {ev.titolo}
                           </h3>
                           {ev.artista && (
-                            <p className="mt-3 font-[family-name:var(--font-display)] text-[1.05rem] italic text-oro/85">
+                            <p className="mt-3 font-[family-name:var(--font-display)] text-[1.05rem] italic text-verde/85">
                               {ev.artista}
                             </p>
                           )}
                         </div>
 
-                        <span className="block h-px w-16 bg-oro/35" />
+                        <span className="block h-px w-16 bg-verde/35" />
 
                         <p className="max-w-[54ch] leading-relaxed text-fumo">{ev.descrizione}</p>
 
@@ -260,7 +251,7 @@ export default function EventsCarousel() {
                   style={{
                     width: i === indice ? "3rem" : "1.25rem",
                     background:
-                      i === indice ? "var(--color-oro)" : "color-mix(in srgb, var(--color-fumo) 45%, transparent)",
+                      i === indice ? "var(--color-verde)" : "color-mix(in srgb, var(--color-fumo) 45%, transparent)",
                   }}
                 />
               </button>
@@ -268,7 +259,7 @@ export default function EventsCarousel() {
           </div>
         )}
 
-        <p className="mt-6 text-center font-[family-name:var(--font-inciso)] text-[0.55rem] uppercase tracking-[0.28em] text-fumo/55 md:hidden">
+        <p className="alone mt-6 text-center font-[family-name:var(--font-inciso)] text-[0.55rem] uppercase tracking-[0.28em] text-fumo/75 md:hidden">
           Scorri con il dito
         </p>
       </div>
@@ -289,7 +280,7 @@ function FrecciaCarosello({
       type="button"
       onClick={onClick}
       aria-label={sx ? "Evento precedente" : "Evento successivo"}
-      className="absolute top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-oro/30 bg-notte/75 text-crema backdrop-blur-[3px] transition-all duration-500 hover:border-oro hover:bg-notte hover:text-oro md:flex"
+      className="absolute top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center border border-verde/30 bg-notte/75 text-crema backdrop-blur-[3px] transition-all duration-500 hover:border-verde hover:bg-notte hover:text-verde md:flex"
       style={sx ? { left: "-1.5rem" } : { right: "-1.5rem" }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">

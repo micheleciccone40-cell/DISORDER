@@ -12,3 +12,4 @@ ANIMAZIONE DISORDER LANDING/
 .env*.local
 .DS_Store
 Thumbs.db
+~syncthing~*
